@@ -11,7 +11,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements SensorEventListener {
+public class Compass extends Activity implements SensorEventListener {
 
     // define the display assembly compass picture
     private ImageView image;
@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements SensorEventListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.compass);
 
         // our compass image
         image = (ImageView) findViewById(R.id.imageViewCompass);
