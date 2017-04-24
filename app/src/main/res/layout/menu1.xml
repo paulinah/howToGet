@@ -7,31 +7,33 @@
     android:id="@+id/container">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:orientation="horizontal">
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/item1"
-            android:scaleType="fitXY"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/img_kompas" />
+            android:scaleType="fitXY"
+            android:src="@drawable/kompas1"
+            android:background="#8025315e"/>
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/item2"
-            android:scaleType="fitXY"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/img_biezaca_lokalizacja"
-            android:layout_marginLeft="15dp"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/lokalizacja1"
+            android:background="#8025315e"/>
     </LinearLayout>
 
     <LinearLayout
@@ -39,28 +41,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:paddingTop="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
             android:id="@+id/item3"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            android:src="@drawable/img_zapiszwspolrzedne" />
+            android:src="@drawable/mapa1"
+            android:background="#00000000"/>
 
         <ImageButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
             android:id="@+id/item4"
-            android:scaleType="fitXY"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginLeft="10dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/img_nawigacja"
-            android:layout_marginLeft="15dp"/>
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/nawigacja1" />
 
     </LinearLayout>
 
