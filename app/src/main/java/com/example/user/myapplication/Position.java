@@ -10,25 +10,26 @@ public class Position implements Serializable {
 
     private int id;
     private String name;
-    private String longtitude;
+    private String longitude;
     private String latitude;
 
     //Empty constructor
-    public Position(){
-
+    public Position(String name, String latitude, String longitude){
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public Position(int id, String name, String longtitude, String latitude) {
+    public Position() {
         this.id = id;
         this.name = name;
-        this.longtitude = longtitude;
+        this.longitude = longitude;
         this.latitude = latitude;
     }
 
     public int getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
@@ -41,12 +42,12 @@ public class Position implements Serializable {
         this.name = name;
     }
     //getting name
-    public String getLongtitude() {
-        return longtitude;
+    public String getLongitude() {
+        return longitude;
     }
     //setting name
-    public void setLongtitude(String longtitude){
-        this.longtitude = longtitude;
+    public void setLongitude(String longtitude){
+        this.longitude = longtitude;
     }
     public String getLatitude() {
         return latitude;
@@ -54,7 +55,6 @@ public class Position implements Serializable {
     public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
-
     public String toString() {
         return id - 1 + " " + name; //nie powinno byc -1 ale nie wiem gdzie jest blad
     }

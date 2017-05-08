@@ -32,7 +32,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/nazwa_lokalizacji"
+            android:id="@+id/save_coordinates_name"
             android:hint="nazwa lokalizacji"
             android:gravity="top"
             android:paddingBottom="8dp"
@@ -70,7 +70,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/dlugosc_lokalizacji"
+            android:id="@+id/save_coordinates_longitude"
             android:hint="długość geograficzna lokalizacji"
             android:gravity="top"
             android:paddingTop="8dp"
@@ -109,7 +109,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/szerokosc_lokalizacji"
+            android:id="@+id/save_coordinates_latitude"
             android:hint="szerokość geograficzna lokalizacji"
             android:gravity="top"
             android:paddingTop="8dp"
