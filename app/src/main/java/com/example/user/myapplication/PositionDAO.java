@@ -68,12 +68,12 @@ public class PositionDAO extends SQLiteOpenHelper {
                 position.setLatitude(cursor.getString(2));
                 position.setLongtitude(cursor.getString(3));
 
-                //Adding meal to list
+
                 positions.add(position);
             } while (cursor.moveToNext());
         }
         db.close(); // close inserting data from database
-        return positions; // return meal list
+        return positions; // return position
     }
 
     public void remove(Position position){
