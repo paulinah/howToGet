@@ -27,6 +27,8 @@ public class Menu extends Activity
 
         getWindow().getDecorView().setBackgroundColor(Color.parseColor("#25315e"));
         ImageButton compass = (ImageButton) findViewById(R.id.item1);
+        ImageButton savecoordinates = (ImageButton) findViewById(R.id.item3);
+        ImageButton saveposition = (ImageButton) findViewById(R.id.item2);
 
         compass.setOnClickListener(new View.OnClickListener() {
 
@@ -35,9 +37,26 @@ public class Menu extends Activity
                 Intent intention = new Intent(getApplicationContext(), Compass.class);
                 startActivity(intention);
             }
-
-
         });
+
+        savecoordinates.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view)
+            {
+                Intent intention = new Intent(getApplicationContext(), SaveCoordinates.class);
+                startActivity(intention);
+            }
+        });
+
+        saveposition.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view)
+            {
+                Intent intention = new Intent(getApplicationContext(), SavePosition.class);
+                startActivity(intention);
+            }
+        });
+
 
     }
 };

@@ -26,6 +26,24 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".SaveCoordinates"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".SaveCoordinates"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SavePosition"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".SavePosition"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 
