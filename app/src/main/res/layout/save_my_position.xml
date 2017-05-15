@@ -62,6 +62,7 @@
             android:onClick="save_coordinates_add"
             android:background="@drawable/save_coordinates_add"
             android:layout_alignParentBottom="true"
+            android:id="@+id/save_my_position"
             />
     </RelativeLayout>
 
