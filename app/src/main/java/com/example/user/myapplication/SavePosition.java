@@ -15,12 +15,17 @@ public class SavePosition extends Activity {
 
     GPSTracker gps;
     Button btnShowLocation;
+    PositionDAO dao;
+    Activity activity;
+    Position position;
+    PositionViewHelper helper;
+    protected MyApp mMyApp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_my_position);
-
+        activity = this;
         btnShowLocation = (Button) findViewById(R.id.save_my_position);
 
         // show location button click event
@@ -30,6 +35,12 @@ public class SavePosition extends Activity {
             public void onClick(View arg0) {
                 // create class object
                 gps = new GPSTracker(SavePosition.this);
+                helper = new PositionViewHelper(activity);
+                position = helper.createNewPosition();
+                dao = new PositionDAO(activity);
+                dao.insert(position);
+                System.err.println(dao.getlistAll());
+                dao.close();
 
                 // check if GPS enabled
                 if(gps.canGetLocation()){
@@ -39,14 +50,34 @@ public class SavePosition extends Activity {
 
                     // \n is for new line
                     Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+
+                    finish();
+
                 }else{
-                    // can't get location
-                    // GPS or Network is not enabled
-                    // Ask user to enable GPS/network in settings
                     gps.showSettingsAlert();
                 }
 
             }
         });
+    }
+
+    protected void onPause() {
+  //      clearReferences();
+        super.onPause();
+    }
+    protected void onDestroy() {
+    //    clearReferences();
+        super.onDestroy();
+    }
+//
+//    private void clearReferences(){
+//        Activity currActivity = mMyApp.getCurrentActivity();
+//        if (this.equals(currActivity))
+//            mMyApp.setCurrentActivity(this);
+//    }
+
+    private boolean hasIntentionToUpdate() {
+        return getIntent().hasExtra("position");
+
     }
 }

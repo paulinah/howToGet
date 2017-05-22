@@ -10,23 +10,31 @@ import android.widget.EditText;
 
 public class PositionViewHelper {
 
-    private final Activity activity;
+    private Activity activity;
 
     public PositionViewHelper(Activity activity) {
         this.activity = activity;
     }
 
     public String getName() {
-        return getTextFieldValue(R.id.save_coordinates_name);
+        return getTextFieldValue(R.id.save_my_position);
     }
 
     private String getTextFieldValue(int fieldId) {
-        //System.out.println(activity.getComponentName().getClassName() + "MOJA ACTIVITY");
-        EditText field = (EditText) activity.findViewById(fieldId);
+        System.err.println(activity.toString());
+
+        EditText field = (EditText) activity.findViewById(R.id.nazwa_pozycji);
         String value = field.getText().toString();
         return value;
     }
+    public String getMyLatitude() {
+        return getTextFieldValue(R.id.save_coordinates_latitude);
 
+    }
+    public String getMyLongitude() {
+        return getTextFieldValue(R.id.save_coordinates_longitude);
+
+    }
     public String getLatitude() {
         return getTextFieldValue(R.id.save_coordinates_latitude);
 

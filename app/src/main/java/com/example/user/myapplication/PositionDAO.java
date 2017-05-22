@@ -34,8 +34,8 @@ public class PositionDAO extends SQLiteOpenHelper {
         @Override
     public void onCreate(SQLiteDatabase db) {
             //create the table
-            String sql = "Create TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-                    + KEY_NAME + " TEXT," + KEY_LATITUDE + " TEXT," + KEY_LONGITUDE + " TEXT," + ")";
+            String sql = "CREATE TABLE " + TABLE_NAME + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
+                    + KEY_NAME + " TEXT," + KEY_LATITUDE + " TEXT," + KEY_LONGITUDE + " TEXT" + ")";
             db.execSQL(sql);
         }
     //Adding new Position

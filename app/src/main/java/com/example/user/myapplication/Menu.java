@@ -30,6 +30,7 @@ public class Menu extends Activity
         ImageButton savecoordinates = (ImageButton) findViewById(R.id.item3);
         ImageButton saveposition = (ImageButton) findViewById(R.id.item2);
 
+
         compass.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view)

@@ -31,15 +31,11 @@ public class SaveCoordinates extends AppCompatActivity {
         getSupportActionBar().hide(); //hide ActionBar
 
         mMyApp = (MyApp) this.getApplicationContext();
-        //helper = new PositionViewHelper(this);
         save = (Button) findViewById(R.id.save_coordinates_add);
         save.setOnClickListener(new View.OnClickListener()
         {
-
-
             @Override
             public void onClick(View v) {
-
                 helper = new PositionViewHelper(activity);
                 position = helper.createNewPosition();
                 dao = new PositionDAO(activity);

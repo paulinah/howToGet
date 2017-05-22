@@ -31,7 +31,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/nazwa_pozycjii"
+            android:id="@+id/nazwa_pozycji"
             android:hint="nazwa pozycji"
             android:gravity="top"
             android:paddingBottom="8dp"
