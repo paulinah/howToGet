@@ -36,27 +36,26 @@ public class SavePosition extends Activity {
                 // create class object
                 gps = new GPSTracker(SavePosition.this);
                 helper = new PositionViewHelper(activity);
-                position = helper.createNewPosition();
+                position = helper.createNewPosition(R.id.nazwa_pozycji);
                 dao = new PositionDAO(activity);
-                dao.insert(position);
-                System.err.println(dao.getlistAll());
-                dao.close();
 
-                // check if GPS enabled
                 if(gps.canGetLocation()){
 
                     double latitude = gps.getLatitude();
                     double longitude = gps.getLongitude();
 
-                    // \n is for new line
                     Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
 
+                    position.setLatitude(String.valueOf(latitude));
+                    position.setLongitude(String.valueOf(longitude));
+                    dao.insert(position);
                     finish();
 
                 }else{
                     gps.showSettingsAlert();
                 }
-
+                dao.close();
+                System.err.println(dao.getlistAll());
             }
         });
     }

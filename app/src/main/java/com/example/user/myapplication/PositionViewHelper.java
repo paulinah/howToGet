@@ -16,14 +16,23 @@ public class PositionViewHelper {
         this.activity = activity;
     }
 
-    public String getName() {
-        return getTextFieldValue(R.id.save_my_position);
+    public String getName(int fieldId) {
+        return getTextFieldValue(fieldId);
+    }
+
+    Position createNewPosition(int fieldId) {
+        return new Position(getName(fieldId));
+    }
+    Position createNewPosition(int fieldId,int latId, int longId) {
+        return new Position(getName(fieldId),getLatitude(latId),getLongitude(longId));
     }
 
     private String getTextFieldValue(int fieldId) {
         System.err.println(activity.toString());
 
-        EditText field = (EditText) activity.findViewById(R.id.nazwa_pozycji);
+        EditText field = (EditText) activity.findViewById(fieldId);
+        System.err.println("poprzed parametr: "+fieldId);
+        System.err.println("bezposrednio: "+R.id.nazwa_pozycji);
         String value = field.getText().toString();
         return value;
     }
@@ -35,15 +44,13 @@ public class PositionViewHelper {
         return getTextFieldValue(R.id.save_coordinates_longitude);
 
     }
-    public String getLatitude() {
-        return getTextFieldValue(R.id.save_coordinates_latitude);
+    public String getLatitude(int latId) {
+        return getTextFieldValue(latId);
 
     }
-    public String getLongitude() {
-        return getTextFieldValue(R.id.save_coordinates_longitude);
+    public String getLongitude(int longId) {
+        return getTextFieldValue(longId);
 
     }
-    Position createNewPosition() {
-        return new Position(getName(), getLatitude(), getLongitude());
-    }
+
 }

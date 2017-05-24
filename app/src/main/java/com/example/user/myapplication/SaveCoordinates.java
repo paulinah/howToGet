@@ -27,22 +27,22 @@ public class SaveCoordinates extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.save_coordinates);
-
+        activity = this;
         getSupportActionBar().hide(); //hide ActionBar
 
-        mMyApp = (MyApp) this.getApplicationContext();
         save = (Button) findViewById(R.id.save_coordinates_add);
         save.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
                 helper = new PositionViewHelper(activity);
-                position = helper.createNewPosition();
+                position = helper.createNewPosition(R.id.save_coordinates_name,R.id.save_coordinates_latitude,R.id.save_coordinates_longitude);
                 dao = new PositionDAO(activity);
                 dao.insert(position);
                 dao.close();
                 String message = " " + position.getName() + " was creating ";
                 Toast.makeText(SaveCoordinates.this, message, Toast.LENGTH_SHORT).show();
+                System.err.println(dao.getlistAll());
                 finish();
             }
         });
@@ -50,24 +50,24 @@ public class SaveCoordinates extends AppCompatActivity {
 
     protected void onResume() {
         super.onResume();
-        mMyApp.setCurrentActivity(this);
-        activity = mMyApp.getCurrentActivity();
+//        mMyApp.setCurrentActivity(this);
+//        activity = mMyApp.getCurrentActivity();
 
     }
     protected void onPause() {
-        clearReferences();
+//        clearReferences();
         super.onPause();
     }
     protected void onDestroy() {
-        clearReferences();
+//        clearReferences();
         super.onDestroy();
     }
 
-    private void clearReferences(){
-        Activity currActivity = mMyApp.getCurrentActivity();
-        if (this.equals(currActivity))
-            mMyApp.setCurrentActivity(null);
-    }
+//    private void clearReferences(){
+//        Activity currActivity = mMyApp.getCurrentActivity();
+//        if (this.equals(currActivity))
+//            mMyApp.setCurrentActivity(null);
+//    }
 
     private boolean hasIntentionToUpdate() {
         return getIntent().hasExtra("position");

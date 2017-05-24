@@ -19,6 +19,9 @@ public class Position implements Serializable {
         this.latitude = latitude;
         this.longitude = longitude;
     }
+    public Position(String name) {
+        this.name = name;
+    }
 
     public Position() {
         this.id = id;
@@ -64,7 +67,7 @@ public class Position implements Serializable {
     }
 
     public String toString() {
-        return id - 1 + " " + name; //nie powinno byc -1 ale nie wiem gdzie jest blad
+        return id - 1 + " " + name+ " "+latitude+ " "+longitude+ " "; //nie powinno byc -1 ale nie wiem gdzie jest blad
     }
 }
 
