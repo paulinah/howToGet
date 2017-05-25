@@ -29,6 +29,7 @@ public class Menu extends Activity
         ImageButton compass = (ImageButton) findViewById(R.id.item1);
         ImageButton savecoordinates = (ImageButton) findViewById(R.id.item3);
         ImageButton saveposition = (ImageButton) findViewById(R.id.item2);
+        ImageButton navigation = (ImageButton) findViewById(R.id.item4);
 
 
         compass.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,15 @@ public class Menu extends Activity
             public void onClick(View view)
             {
                 Intent intention = new Intent(getApplicationContext(), SavePosition.class);
+                startActivity(intention);
+            }
+        });
+
+        navigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intention = new Intent(getApplicationContext(), PositionList.class);
                 startActivity(intention);
             }
         });

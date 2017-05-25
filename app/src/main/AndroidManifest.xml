@@ -45,6 +45,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".PositionList"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".PositionList"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </activity>
+
+
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />

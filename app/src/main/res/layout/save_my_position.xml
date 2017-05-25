@@ -22,7 +22,7 @@
             android:orientation="horizontal"
             android:text="Wprowadz nazwę lokalizacji"
             android:id="@+id/nazwa_pozycji_text"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textColor="@android:color/white"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -38,8 +38,9 @@
             android:paddingLeft="8dp"
             android:layout_below="@+id/nazwa_pozycji_text"
             android:textColorHint="#FFFFFF"
-            android:alpha="0.3"
+            android:alpha="0.8"
             android:layout_marginTop="10dp"
+            android:textColor="@android:color/white"
             />
 
     </RelativeLayout>

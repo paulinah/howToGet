@@ -23,7 +23,7 @@
             android:orientation="horizontal"
             android:text="Wprowadz nazwę lokalizacji"
             android:id="@+id/nazwa_lokalizacji_text"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textColor="@android:color/white"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -39,7 +39,7 @@
             android:paddingLeft="8dp"
             android:layout_below="@+id/nazwa_lokalizacji_text"
             android:textColorHint="#FFFFFF"
-            android:alpha="0.3"
+            android:alpha="0.8"
             android:layout_marginTop="10dp"
             android:textColor="@android:color/white"
             />
@@ -64,7 +64,7 @@
             android:orientation="horizontal"
             android:text="Wprowadź długość geograficzną lokalizacji "
             android:id="@+id/dlugosc_text"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textColor="@android:color/white"/>
 
         <EditText
@@ -78,7 +78,7 @@
             android:paddingBottom="8dp"
             android:layout_below="@+id/dlugosc_text"
             android:textColorHint="#FFFFFF"
-            android:alpha="0.3"
+            android:alpha="0.8"
             android:layout_marginTop="10dp"
             android:textColor="@android:color/white"
             />
@@ -104,7 +104,7 @@
             android:text="Wprowadź szerokość geograficzną lokalizacji "
             android:textColor="@android:color/white"
             android:id="@+id/szerokosc_text"
-            android:textSize="15dp"/>
+            android:textSize="20dp"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -117,7 +117,7 @@
             android:paddingBottom="8dp"
             android:layout_below="@+id/szerokosc_text"
             android:textColorHint="#FFFFFF"
-            android:alpha="0.3"
+            android:alpha="0.8"
             android:layout_marginTop="10dp"
             android:textColor="@android:color/white"
             />
