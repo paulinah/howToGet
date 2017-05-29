@@ -1,4 +1,5 @@
 package com.example.user.myapplication;
+// Klasa zaimplementowana została na podstawie kodu https://www.javacodegeeks.com/2013/09/android-compass-code-example.html
 
 import android.app.Activity;
 import android.hardware.Sensor;

@@ -15,6 +15,7 @@ import android.util.Log;
 
 /**
  * Created by Pawel on 2017-05-15.
+ * Kod napisany został na podstawie http://www.androidhive.info/2012/07/android-gps-location-manager-tutorial/
  */
 
 public class GPSTracker extends Service implements LocationListener {
