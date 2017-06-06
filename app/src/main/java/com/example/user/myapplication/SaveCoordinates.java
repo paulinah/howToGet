@@ -30,6 +30,12 @@ public class SaveCoordinates extends AppCompatActivity {
         activity = this;
         getSupportActionBar().hide(); //hide ActionBar
 
+        if(hasIntentionToUpdate()) {
+            position = getOriginalPositionToUpdate();
+            helper = new PositionViewHelper(this);
+            helper.EditMeal(position);
+        }
+
         save = (Button) findViewById(R.id.save_coordinates_add);
         save.setOnClickListener(new View.OnClickListener()
         {
@@ -38,7 +44,13 @@ public class SaveCoordinates extends AppCompatActivity {
                 helper = new PositionViewHelper(activity);
                 position = helper.createNewPosition(R.id.save_coordinates_name,R.id.save_coordinates_latitude,R.id.save_coordinates_longitude);
                 dao = new PositionDAO(activity);
-                dao.insert(position);
+                if(hasIntentionToUpdate()) {
+                    dao.update(position, getOriginalPositionToUpdate().getId());
+                }
+                else {
+                    dao.insert(position);
+                }
+
                 dao.close();
                 String message = " " + position.getName() + " was creating ";
                 Toast.makeText(SaveCoordinates.this, message, Toast.LENGTH_SHORT).show();
@@ -72,6 +84,12 @@ public class SaveCoordinates extends AppCompatActivity {
     private boolean hasIntentionToUpdate() {
         return getIntent().hasExtra("position");
 
+    }
+
+    private Position getOriginalPositionToUpdate() {
+        Intent intent = getIntent();
+        Position position = (Position) intent.getSerializableExtra("position");
+        return position;
     }
 
 

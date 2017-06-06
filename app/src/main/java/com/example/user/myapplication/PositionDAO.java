@@ -88,4 +88,17 @@ public class PositionDAO extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+    //update item in ListView
+    public void update(Position position, int originalId){
+        db = this.getWritableDatabase();
+        ContentValues data = new ContentValues();
+
+        data.put(KEY_NAME, position.getName());
+        data.put(KEY_LATITUDE, position.getLatitude());
+        data.put(KEY_LONGITUDE, position.getLongitude());
+
+        String []params = {originalId + ""};
+        db.update(TABLE_NAME, data, "id = ?", params);
+        db.close();
+    }
 }
