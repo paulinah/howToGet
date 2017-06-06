@@ -51,4 +51,8 @@ public class PositionList extends AppCompatActivity implements AdapterView.OnIte
         Position position = (Position) positionList.getItemAtPosition(possition);
     }
 
+    public void updateAdapter() {
+        adapter.notifyDataSetChanged();
+    }
+
 }

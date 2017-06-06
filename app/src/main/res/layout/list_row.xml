@@ -1,38 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingTop="5dp"
-    android:paddingBottom="10dp"
-    android:layout_height="100dp"
+<com.daimajia.swipe.SwipeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/bottom_wrapper"
+        android:layout_width="180dp"
+        android:layout_height="100dp"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/row_edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/edycja"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/row_delete"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/usuwanie"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:layout_height="100dp"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name"
-        android:id="@+id/row_name"
-        android:layout_marginRight="5dp"
-        android:layout_centerHorizontal="true" />
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginRight="5dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Latitude"
-        android:id="@+id/row_latitude"
-        android:layout_below="@+id/row_name" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Name"
+            android:id="@+id/row_name"
+            android:layout_marginRight="5dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_marginRight="5dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Longitude"
-        android:id="@+id/row_longitude"
-        android:layout_below="@+id/row_latitude" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Latitude"
+            android:id="@+id/row_latitude"
+            android:layout_below="@+id/row_name"
+            android:textColor="@android:color/white"/>
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Longitude"
+            android:id="@+id/row_longitude"
+            android:layout_below="@+id/row_latitude"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
+</com.daimajia.swipe.SwipeLayout>

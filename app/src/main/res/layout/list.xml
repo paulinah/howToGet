@@ -3,7 +3,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/list_Relative">
+    android:id="@+id/list_Relative"
+    android:background="#25315e">
 
     <ListView
         android:layout_width="match_parent"
