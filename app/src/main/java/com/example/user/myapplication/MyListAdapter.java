@@ -16,9 +16,6 @@ import java.util.List;
 
 import static android.R.id.edit;
 
-/**
- * Created by Paula on 2017-05-25.
- */
 public class MyListAdapter extends ArrayAdapter<Position> {
 
     private List<Position> positions;
@@ -60,6 +57,7 @@ public class MyListAdapter extends ArrayAdapter<Position> {
         holder.longitude.setText(position.getLongitude());
         holder.delete.setOnClickListener(onDeleteListener(possition,holder));//clicked Delete ImageView
         holder.edit.setOnClickListener(onEditListener(possition,holder));
+        holder.navigation.setOnClickListener(onNavigateListener(possition,holder));
 
         holder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
 
@@ -94,7 +92,19 @@ public class MyListAdapter extends ArrayAdapter<Position> {
 
         return converView;
     }
-
+    //Click on Edit Icon
+    private View.OnClickListener onNavigateListener(final int possition, ImageHolder holder) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                position = (Position) activity.positionList.getItemAtPosition(possition);
+                Intent intention = new Intent(activity, Navigate.class);
+                intention.putExtra("latitude", position.getLatitude());
+                intention.putExtra("longitude", position.getLongitude());
+                activity.startActivity(intention);
+            }
+        };
+    }
     //Click on Edit Icon
     private View.OnClickListener onEditListener(final int possition, ImageHolder holder) {
         return new View.OnClickListener() {
@@ -103,7 +113,6 @@ public class MyListAdapter extends ArrayAdapter<Position> {
                 position = (Position) activity.positionList.getItemAtPosition(possition);
                 //position = positions.get(possition);
                 Intent intention = new Intent(activity, SaveCoordinates.class);
-                intention.putExtra("position", position);
                 activity.startActivity(intention);
             }
         };
@@ -147,6 +156,7 @@ public class MyListAdapter extends ArrayAdapter<Position> {
         TextView longitude;
         View delete;
         View edit;
+        View navigation;
         SwipeLayout swipeLayout;
 
         public ImageHolder (View v) {
@@ -157,6 +167,8 @@ public class MyListAdapter extends ArrayAdapter<Position> {
             swipeLayout = (SwipeLayout) v.findViewById(R.id.swipe);
             delete = v.findViewById(R.id.row_delete);
             edit = v.findViewById(R.id.row_edit);
+            navigation = v.findViewById(R.id.row_navigate);
+
 
             swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         }
