@@ -36,7 +36,7 @@ public class Menu extends Activity
 
             public void onClick(View view)
             {
-                Intent intention = new Intent(getApplicationContext(), Navigate.class);
+                Intent intention = new Intent(getApplicationContext(), Compass.class);
                 startActivity(intention);
             }
         });

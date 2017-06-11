@@ -16,6 +16,7 @@ public class Navigate extends Activity implements SensorEventListener {
 
 
         private ImageView image;
+        private ImageView arrow;
         GPSTracker gps;
         // record the compass picture angle turned
         private float currentDegree = 0f;
@@ -38,17 +39,13 @@ public class Navigate extends Activity implements SensorEventListener {
             setContentView(R.layout.navigate);
 
             Bundle extras = getIntent().getExtras();
-
                 destinationLatitude= Double.parseDouble(extras.getString("latitude"));
-                System.err.println(destinationLatitude);
                 destinationLongitude= Double.parseDouble(extras.getString("longitude"));
-                System.err.println(destinationLongitude);
 
             // our compass image
-            image = (ImageView) findViewById(R.id.imageViewNavigate);
+            arrow = (ImageView) findViewById(R.id.imageViewNavigate);
 
             // TextView that will tell the user what degree is he heading
-            tvHeading = (TextView) findViewById(R.id.tvHeading);
             tvDistance = (TextView) findViewById(R.id.tvDistance);
 
             // initialize your android device sensor capabilities
@@ -72,7 +69,7 @@ public class Navigate extends Activity implements SensorEventListener {
             // to stop the listener and save battery
             mSensorManager.unregisterListener(this);
         }
-
+        double azimuth = 0;
         @Override
         public void onSensorChanged(SensorEvent event) {
             gps = new GPSTracker(Navigate.this);
@@ -83,29 +80,58 @@ public class Navigate extends Activity implements SensorEventListener {
                 currentLongitude = gps.getLongitude();
             //OBLICZANIE AZYMUTU
 
+            azimuth = (360/Math.PI)*Math.abs((destinationLongitude-currentLongitude)/(destinationLatitude-currentLatitude));
+            int quarter;
+            if(destinationLongitude>=currentLongitude){
+                if(destinationLatitude>=currentLatitude){
+                    quarter=1;
+                }else {
+                    quarter = 2;
+                }
+            }else{
+                if(destinationLatitude>=currentLatitude){
+                    quarter=4;
+                }else{
+                    quarter=3;
+                }
+            }switch(quarter) {
+                case 1:
+                    azimuth=azimuth;
+                    break;
+                case 2:
+                    azimuth=180-azimuth;
+                    break;
+                case 3:
+                    azimuth=180+azimuth;
+                    break;
+                case 4:
+                    azimuth=360-azimuth;
+                    break;
+            }
+
             //OBLICZANIE ODLEGLOSCI
             double distance = Math.sqrt(Math.pow(destinationLatitude-currentLatitude,2)+(Math.pow(destinationLongitude-currentLongitude,2)));
 
-            tvHeading.setText("Heading: " + (String.format("%.1f",degree)) + " degrees");
             tvDistance.setText("Distance: " + (String.format("%.4f",distance)) + " degrees");
 
-            // create a rotation animation (reverse turn degree degrees)
-            RotateAnimation ra = new RotateAnimation(
+
+            RotateAnimation naviRotation = new RotateAnimation(
                     currentDegree,
-                    -degree,
+                    -degree-(float)azimuth,
                     Animation.RELATIVE_TO_SELF, 0.5f,
                     Animation.RELATIVE_TO_SELF,
                     0.5f);
 
             // how long the animation will take place
-            ra.setDuration(210);
+            naviRotation.setDuration(210);
 
             // set the animation after the end of the reservation status
-            ra.setFillAfter(true);
+            naviRotation.setFillAfter(true);
 
             // Start the animation
-            image.startAnimation(ra);
-            currentDegree = -degree;
+            // image.startAnimation(ra);
+            arrow.startAnimation(naviRotation);
+            currentDegree = -degree-(float)azimuth;
 
         }
     @Override
